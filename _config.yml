@@ -1,10 +1,12 @@
-lsi: false
-safe: true
-source: /
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+# 1. Define the theme you want to use
+remote_theme: pages-themes/architect@v0.2.0 
+
+# 2. Add basic site configuration (mandatory)
+title: Aamir's Portfolio
+description: Senior MLOps Engineer with speciality in GenAI and Cloud development
+show_downloads: false # Set to true if you want a download link
+google_analytics: # Your GA tracking ID (optional)
+
+# 3. Add social media links (optional, theme dependent)
+github_username: aamirkhan647
+linkedin_username: https://www.linkedin.com/in/aamirkhan647/
