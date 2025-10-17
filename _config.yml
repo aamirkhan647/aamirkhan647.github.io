@@ -1,12 +1,25 @@
-# 1. Define the theme you want to use
-remote_theme: pages-themes/architect@v0.2.0 
+title:              Aamir Khan
+email:              jadoon.engr@gmail.com
+description:        MLOps/ML Engineer at Definity Financial with 4 years of hands-on experience, specialist in GenAI/LLM with expertise in implementing and deploying end-to-end pipelines.
+author:             Aamir Khan
+baseurl:            ""
+url:                "https://aamirkhan647.github.io"
 
-# 2. Add basic site configuration (mandatory)
-title: Aamir's Portfolio
-description: Senior MLOps Engineer with speciality in GenAI and Cloud development
-show_downloads: false # Set to true if you want a download link
-google_analytics: # Your GA tracking ID (optional)
+# Social Profiles
+twitter_username:  
+github_username:    aamirkhan647
+facebook_username:  
+instagram_username:  
+linkedin_username: aamirkhan647
 
-# 3. Add social media links (optional, theme dependent)
-github_username: aamirkhan647
-linkedin_username: https://www.linkedin.com/in/aamirkhan647/
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+
+# Build settings
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
