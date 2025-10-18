@@ -1,563 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aamir Khan - MLOps & GenAI Portfolio</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aamir Khan - MLOps & GenAI Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-    header {
-      text-align: center;
-      color: white;
-      padding: 80px 20px 60px;
-      margin-bottom: 40px;
-    }
+        header {
+            text-align: center;
+            color: white;
+            padding: 80px 20px 60px;
+            margin-bottom: 40px;
+        }
 
-    h1 {
-      font-size: 3.5em;
-      margin-bottom: 15px;
-      font-weight: 700;
-      letter-spacing: -1px;
-    }
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
 
-    .subtitle {
-      font-size: 1.5em;
-      opacity: 0.95;
-      margin-bottom: 30px;
-      font-weight: 300;
-    }
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
 
-    .tagline {
-      font-size: 1.1em;
-      opacity: 0.85;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.8;
-    }
+        .tagline {
+            font-size: 1.1em;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
 
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
 
-    .contact-links a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 28px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
 
-    .contact-links a:hover {
-      background: rgba(255, 255, 255, 0.35);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
 
-    .section {
-      background: white;
-      border-radius: 20px;
-      padding: 50px;
-      margin-bottom: 35px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    }
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
 
-    h2 {
-      color: #667eea;
-      font-size: 2.2em;
-      margin-bottom: 35px;
-      text-align: center;
-      font-weight: 600;
-    }
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 35px;
+            text-align: center;
+            font-weight: 600;
+        }
 
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
 
-    .expertise-card {
-      background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
-      padding: 30px;
-      border-radius: 15px;
-      border-left: 5px solid #667eea;
-      transition: all 0.3s ease;
-    }
+        .expertise-card {
+            background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
 
-    .expertise-card:hover {
-      transform: translateX(5px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-    }
+        .expertise-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
 
-    .expertise-card h3 {
-      color: #667eea;
-      margin-bottom: 15px;
-      font-size: 1.3em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .expertise-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .expertise-card .tech-list {
-      color: #666;
-      font-size: 0.95em;
-      line-height: 1.8;
-    }
+        .expertise-card .tech-list {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
 
-    .project-card {
-      background: white;
-      padding: 35px;
-      border-radius: 15px;
-      transition: all 0.4s ease;
-      border: 2px solid #e8e8e8;
-      position: relative;
-      overflow: hidden;
-    }
+        .project-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            border: 2px solid #e8e8e8;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
 
-    .project-card:hover::before {
-      transform: scaleX(1);
-    }
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
 
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
-      border-color: #667eea;
-    }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+            border-color: #667eea;
+        }
 
-    /* --- NEW SYMBOL STYLING --- */
+        /* --- NEW SYMBOL STYLING --- */
 
-    /* Container for the title and symbol */
-    .project-title-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .project-card h3 {
-        color: #333;
-        font-size: 1.4em;
-        font-weight: 600;
-        margin-bottom: 0; /* Important: reset margin */
-    }
-
-    /* Re-introduce spacing for description after the new wrapper */
-    .project-card .description {
-        margin-top: 15px;
-    }
-
-    /* Medal Style (Best Project) */
-    .medal-symbol {
-        font-size: 1.6em;
-        color: #FFD700; /* Gold color */
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-    }
-
-    /* Hot Style (Popular/Trending Projects) */
-    .hot-symbol {
-        font-size: 1.3em;
-        color: #FF4500; /* Orange-Red for hotness */
-        animation: pulse 1.5s infinite alternate;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); opacity: 1; }
-        100% { transform: scale(1.1); opacity: 0.8; }
-    }
+        /* Container for the title and symbol */
+        .project-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 0; /* Important: reset margin */
+        }
+        /* Re-introduce spacing for description after the new wrapper */
+        .project-card .description {
+            margin-top: 15px;
+        }
     
-    /* END NEW SYMBOL STYLING */
+        /* Medal Style (Best Project) */
+        .medal-symbol {
+            font-size: 1.6em;
+            color: #FFD700; /* Gold color */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+    
+        /* Hot Style (Popular/Trending Projects) */
+        .hot-symbol {
+            font-size: 1.3em;
+            color: #FF4500; /* Orange-Red for hotness */
+            animation: pulse 1.5s infinite alternate;
+        }
+    
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        /* END NEW SYMBOL STYLING */
+        
+        .project-card .description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.98em;
+            line-height: 1.7;
+            min-height: 80px;
+        }
 
-    .project-card .description {
-      color: #666;
-      margin-bottom: 20px;
-      font-size: 0.98em;
-      line-height: 1.7;
-      min-height: 80px;
-    }
+        .badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
 
-    .badges {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+        .badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
 
-    .badge {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.8em;
-      font-weight: 500;
-    }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #667eea;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 0.95em;
-    }
+        .project-link:hover {
+            color: #764ba2;
+            gap: 12px;
+        }
 
-    .project-link:hover {
-      color: #764ba2;
-      gap: 12px;
-    }
+        .highlights {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
 
-    .highlights {
-      background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
-      padding: 40px;
-      border-radius: 15px;
-      margin-top: 30px;
-    }
+        .highlights h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
 
-    .highlights h3 {
-      color: #667eea;
-      margin-bottom: 20px;
-      font-size: 1.4em;
-    }
+        .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .highlights ul {
-      list-style: none;
-      padding: 0;
-    }
+        .highlights li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
 
-    .highlights li {
-      padding: 12px 0 12px 30px;
-      position: relative;
-      color: #555;
-      line-height: 1.6;
-    }
+        .highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
 
-    .highlights li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: #667eea;
-      font-weight: bold;
-      font-size: 1.2em;
-    }
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            margin-top: 50px;
+        }
 
-    footer {
-      text-align: center;
-      color: white;
-      padding: 40px;
-      margin-top: 50px;
-    }
+        footer p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
 
-    footer p {
-      opacity: 0.9;
-      font-size: 0.95em;
-    }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5em;
-      }
+            .subtitle {
+                font-size: 1.2em;
+            }
 
-      .subtitle {
-        font-size: 1.2em;
-      }
+            .section {
+                padding: 30px 25px;
+            }
 
-      .section {
-        padding: 30px 25px;
-      }
+            .projects-grid,
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
 
-      .projects-grid,
-      .expertise-grid {
-        grid-template-columns: 1fr;
-      }
-
-      header {
-        padding: 50px 20px 40px;
-      }
-    }
-  </style>
+            header {
+                padding: 50px 20px 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Aamir M. Khan</h1>
-      <div class="subtitle">MLOps Engineer | GenAI/LLM Specialist</div>
-      <div class="tagline">
-        Building intelligent systems at the intersection of machine learning and cloud infrastructure. 
-        Specialized in generative AI, document processing, and end-to-end ML pipelines.
-      </div>
-      <div class="contact-links">
-        <a href="https://github.com/aamirkhan647" target="_blank">💻 GitHub</a>
-        <a href="https://linkedin.com/in/aamirkhan647/" target="_blank">💼 LinkedIn</a>
-        <a href="mailto:jadoon.engr@gmail.com">✉️ Contact</a>
-        <a href="Aamir_Khan_Resume.pdf" download>📄 Resume</a>
-      </div>
-    </header>
-
-    <div class="section">
-      <h2>Areas of Expertise</h2>
-      <div class="expertise-grid">
-        <div class="expertise-card">
-          <h3>🤖 Generative AI & LLM</h3>
-          <div class="tech-list">
-            Google Gemini, Palm, RAG Architecture, LangChain, LangGraph, Prompt Engineering, Document AI, Semantic Search, Embeddings, Transformers, BERT
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <h3>☁️ MLOps & Cloud</h3>
-          <div class="tech-list">
-            Google Cloud Platform, Vertex AI, BigQuery ML, Kubeflow, Cloud Build, Docker, Kubernetes, CI/CD Pipelines, ML Workflows
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <h3>📊 Machine Learning</h3>
-          <div class="tech-list">
-            Gradient Boosting, Random Forest, H2O, Sklearn, PyTorch, Fraud Detection, Anomaly Detection, Time-Series Forecasting, Model Optimization
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <h3>💾 Data Engineering</h3>
-          <div class="tech-list">
-            BigQuery, Vector Databases (Qdrant, Pinecone), Cloud SQL, PySpark, Dataflow, Pub/Sub, ETL Pipelines
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <h3>💻 Development</h3>
-          <div class="tech-list">
-            Python, R, Java, RESTful APIs, Flask, FastAPI, Git, Bitbucket, Agile Development
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <h3>📈 Analytics & Visualization</h3>
-          <div class="tech-list">
-            Looker Studio, Matplotlib, ggplot, Data Studio, Statistical Analysis, A/B Testing, Business Intelligence
-          </div>
-        </div>
-      </div>
-
-      <div class="highlights">
-        <h3>🏆 Key Achievements</h3>
-        <ul>
-          <li>Won "Best Project" and "Most Innovative Project" awards at company hackathon for AI-powered Confluence search tool</li>
-          <li>Led development of commercial policy quote processing system handling diverse document formats using GenAI</li>
-          <li>Deployed fraud detection model with $450k+ annual business impact and 24% precision on flagged claims</li>
-          <li>Built end-to-end ML pipelines for underwriting, claims processing, and usage-based insurance on GCP</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-            <!-- HOT SYMBOL START -->
-            <div class="project-title-wrapper">
-                <span class="hot-symbol">🔥</span>
-                <h3>Quote Management System</h3>
+    <div class="container">
+        <header>
+            <h1>Aamir M. Khan</h1>
+            <div class="subtitle">MLOps Engineer | GenAI/LLM Specialist</div>
+            <div class="tagline">
+                Building intelligent systems at the intersection of machine learning and cloud infrastructure. 
+                Specialized in generative AI, document processing, and end-to-end ML pipelines.
             </div>
-            <!-- HOT SYMBOL END -->
-          <p class="description">
-            Enterprise-grade system that intelligently processes PDF attachments from insurance brokers. 
-            Automatically identifies quote documents, classifies form types, and extracts structured data 
-            using advanced document AI and pattern recognition techniques.
-          </p>
-          <div class="badges">
-            <span class="badge">Generative AI</span>
-            <span class="badge">Document AI</span>
-            <span class="badge">Python</span>
-            <span class="badge">OCR</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/quote-management-system" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
-
-        <div class="project-card">
-            <!-- MEDAL SYMBOL START -->
-            <div class="project-title-wrapper">
-                <span class="medal-symbol">🥇</span>
-                <h3>Confluence Search Tool</h3>
+            <div class="contact-links">
+                <a href="https://github.com/aamirkhan647" target="_blank">💻 GitHub</a>
+                <a href="https://linkedin.com/in/aamirkhan647/" target="_blank">💼 LinkedIn</a>
+                <a href="mailto:jadoon.engr@gmail.com">✉️ Contact</a>
+                <a href="Aamir_Khan_Resume.pdf" download>📄 Resume</a>
             </div>
-            <!-- MEDAL SYMBOL END -->
-          <p class="description">
-            Award-winning LLM-powered semantic search engine for Confluence documentation. 
-            Implements RAG architecture with LangGraph orchestration and Qdrant vector database 
-            for context-aware, intelligent information retrieval across enterprise knowledge bases.
-          </p>
-          <div class="badges">
-            <span class="badge">LLM</span>
-            <span class="badge">RAG</span>
-            <span class="badge">LangGraph</span>
-            <span class="badge">Vector DB</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/confluence-search-tool" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
+        </header>
 
-        <div class="project-card">
-            <!-- HOT SYMBOL START -->
-            <div class="project-title-wrapper">
-                <span class="hot-symbol">🔥</span>
-                <h3>Email Management System</h3>
+        <div class="section">
+            <h2>Areas of Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>🤖 Generative AI & LLM</h3>
+                    <div class="tech-list">
+                        Google Gemini, Palm, RAG Architecture, LangChain, LangGraph, Prompt Engineering, Document AI, Semantic Search, Embeddings, Transformers, BERT
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <h3>☁️ MLOps & Cloud</h3>
+                    <div class="tech-list">
+                        Google Cloud Platform, Vertex AI, BigQuery ML, Kubeflow, Cloud Build, Docker, Kubernetes, CI/CD Pipelines, ML Workflows
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <h3>📊 Machine Learning</h3>
+                    <div class="tech-list">
+                        Gradient Boosting, Random Forest, H2O, Sklearn, PyTorch, Fraud Detection, Anomaly Detection, Time-Series Forecasting, Model Optimization
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <h3>💾 Data Engineering</h3>
+                    <div class="tech-list">
+                        BigQuery, Vector Databases (Qdrant, Pinecone), Cloud SQL, PySpark, Dataflow, Pub/Sub, ETL Pipelines
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <h3>💻 Development</h3>
+                    <div class="tech-list">
+                        Python, R, Java, RESTful APIs, Flask, FastAPI, Git, Bitbucket, Agile Development
+                    </div>
+                </div>
+
+                <div class="expertise-card">
+                    <h3>📈 Analytics & Visualization</h3>
+                    <div class="tech-list">
+                        Looker Studio, Matplotlib, ggplot, Data Studio, Statistical Analysis, A/B Testing, Business Intelligence
+                    </div>
+                </div>
             </div>
-            <!-- HOT SYMBOL END -->
-          <p class="description">
-            Automated email processing pipeline that integrates with Gmail IMAP to extract, parse, 
-            and store email content in BigQuery with intelligent attachment handling to Cloud Storage. 
-            Enables scalable email analytics and automated workflows.
-          </p>
-          <div class="badges">
-            <span class="badge">Python</span>
-            <span class="badge">BigQuery</span>
-            <span class="badge">GCS</span>
-            <span class="badge">ETL</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/email-management-system" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
 
-        <div class="project-card">
-          <h3>Anomaly Detection System</h3>
-          <p class="description">
-            Machine learning solution for real-time anomaly detection in system log files. 
-            Employs statistical methods and ML algorithms to identify unusual patterns, 
-            enabling proactive monitoring and incident prevention in production environments.
-          </p>
-          <div class="badges">
-            <span class="badge">Machine Learning</span>
-            <span class="badge">Python</span>
-            <span class="badge">Monitoring</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/Anomaly_Detection" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
+            <div class="highlights">
+                <h3>🏆 Key Achievements</h3>
+                <ul>
+                    <li>Won "Best Project" and "Most Innovative Project" awards at company hackathon for AI-powered Confluence search tool</li>
+                    <li>Led development of commercial policy quote processing system handling diverse document formats using GenAI</li>
+                    <li>Deployed fraud detection model with $450k+ annual business impact and 24% precision on flagged claims</li>
+                    <li>Built end-to-end ML pipelines for underwriting, claims processing, and usage-based insurance on GCP</li>
+                </ul>
+            </div>
+        </div>
 
-        <div class="project-card">
-          <h3>MNP IT Ticket Triage</h3>
-          <p class="description">
-            Intelligent ticket classification system that automates IT support ticket triaging. 
-            Uses natural language processing and machine learning to categorize, prioritize, 
-            and route support requests, reducing response times and improving service efficiency.
-          </p>
-          <div class="badges">
-            <span class="badge">NLP</span>
-            <span class="badge">Classification</span>
-            <span class="badge">Python</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/MNP_IT_Ticket_Triage" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Quote Management System</h3>
+                    <p class="description">
+                        Enterprise-grade system that intelligently processes PDF attachments from insurance brokers. 
+                        Automatically identifies quote documents, classifies form types, and extracts structured data 
+                        using advanced document AI and pattern recognition techniques.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Generative AI</span>
+                        <span class="badge">Document AI</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">OCR</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/quote-management-system" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
 
-        <div class="project-card">
-          <h3>TemLoPAC</h3>
-          <p class="description">
-            Temporal and Logical Pattern Analyzer with automated code generation capabilities. 
-            Analyzes complex patterns in sequential data and generates optimized code, 
-            streamlining development workflows for pattern-based applications.
-          </p>
-          <div class="badges">
-            <span class="badge">Java</span>
-            <span class="badge">Pattern Analysis</span>
-            <span class="badge">Code Gen</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/TemLoPAC" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
+                <div class="project-card">
+                    <h3>Confluence Search Tool</h3>
+                    <p class="description">
+                        Award-winning LLM-powered semantic search engine for Confluence documentation. 
+                        Implements RAG architecture with LangGraph orchestration and Qdrant vector database 
+                        for context-aware, intelligent information retrieval across enterprise knowledge bases.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">LLM</span>
+                        <span class="badge">RAG</span>
+                        <span class="badge">LangGraph</span>
+                        <span class="badge">Vector DB</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/confluence-search-tool" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
 
-        <div class="project-card">
-          <h3>Concrete Damage Detection</h3>
-          <p class="description">
-            Computer vision application leveraging deep learning for automated detection and 
-            classification of structural damage in concrete. Assists in infrastructure inspection 
-            and maintenance planning through accurate, scalable image analysis.
-          </p>
-          <div class="badges">
-            <span class="badge">Computer Vision</span>
-            <span class="badge">Deep Learning</span>
-            <span class="badge">CNN</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/Civil-Concrete-Damage" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
+                <div class="project-card">
+                    <h3>Email Management System</h3>
+                    <p class="description">
+                        Automated email processing pipeline that integrates with Gmail IMAP to extract, parse, 
+                        and store email content in BigQuery with intelligent attachment handling to Cloud Storage. 
+                        Enables scalable email analytics and automated workflows.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Python</span>
+                        <span class="badge">BigQuery</span>
+                        <span class="badge">GCS</span>
+                        <span class="badge">ETL</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/email-management-system" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
 
-        <div class="project-card">
-          <h3>Interactive Data Visualizations</h3>
-          <p class="description">
-            Collection of interactive data visualization dashboards and tools built with modern 
-            web technologies. Demonstrates proficiency in creating engaging, insightful visual 
-            analytics for complex datasets and business intelligence.
-          </p>
-          <div class="badges">
-            <span class="badge">Visualization</span>
-            <span class="badge">D3.js</span>
-            <span class="badge">Analytics</span>
-          </div>
-          <a href="https://github.com/aamirkhan647/Interactive_Visualizations" target="_blank" class="project-link">
-            View on GitHub →
-          </a>
-        </div>
-      </div>
-    </div>
+                <div class="project-card">
+                    <h3>Anomaly Detection System</h3>
+                    <p class="description">
+                        Machine learning solution for real-time anomaly detection in system log files. 
+                        Employs statistical methods and ML algorithms to identify unusual patterns, 
+                        enabling proactive monitoring and incident prevention in production environments.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Machine Learning</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">Monitoring</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/Anomaly_Detection" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
 
-    <footer>
-      <p>© 2025 Aamir M. Khan | Toronto, ON</p>
-      <p style="margin-top: 10px;">Building the future with AI and Machine Learning</p>
-    </footer>
-  </div>
+                <div class="project-card">
+                    <h3>MNP IT Ticket Triage</h3>
+                    <p class="description">
+                        Intelligent ticket classification system that automates IT support ticket triaging. 
+                        Uses natural language processing and machine learning to categorize, prioritize, 
+                        and route support requests, reducing response times and improving service efficiency.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">NLP</span>
+                        <span class="badge">Classification</span>
+                        <span class="badge">Python</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/MNP_IT_Ticket_Triage" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>TemLoPAC</h3>
+                    <p class="description">
+                        Temporal and Logical Pattern Analyzer with automated code generation capabilities. 
+                        Analyzes complex patterns in sequential data and generates optimized code, 
+                        streamlining development workflows for pattern-based applications.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Java</span>
+                        <span class="badge">Pattern Analysis</span>
+                        <span class="badge">Code Gen</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/TemLoPAC" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Concrete Damage Detection</h3>
+                    <p class="description">
+                        Computer vision application leveraging deep learning for automated detection and 
+                        classification of structural damage in concrete. Assists in infrastructure inspection 
+                        and maintenance planning through accurate, scalable image analysis.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Computer Vision</span>
+                        <span class="badge">Deep Learning</span>
+                        <span class="badge">CNN</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/Civil-Concrete-Damage" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Interactive Data Visualizations</h3>
+                    <p class="description">
+                        Collection of interactive data visualization dashboards and tools built with modern 
+                        web technologies. Demonstrates proficiency in creating engaging, insightful visual 
+                        analytics for complex datasets and business intelligence.
+                    </p>
+                    <div class="badges">
+                        <span class="badge">Visualization</span>
+                        <span class="badge">D3.js</span>
+                        <span class="badge">Analytics</span>
+                    </div>
+                    <a href="https://github.com/aamirkhan647/Interactive_Visualizations" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Aamir M. Khan | Toronto, ON</p>
+            <p style="margin-top: 10px;">Building the future with AI and Machine Learning</p>
+        </footer>
+    </div>
 </body>
 </html>
